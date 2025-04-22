@@ -1,0 +1,1 @@
+enum class RequestStatus { kOk, kRefused };
