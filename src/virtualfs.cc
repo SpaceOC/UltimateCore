@@ -3,10 +3,10 @@
 #include "../headers/virtualfs.h"
 
 #include <cereal/archives/portable_binary.hpp>
-#include <cereal/cereal.hpp>
-#include <cereal/types/map.hpp>
-#include <cereal/types/string.hpp>
-#include <fstream>
+#include <cereal/cereal.hpp>       // NOLINT
+#include <cereal/types/map.hpp>    // NOLINT
+#include <cereal/types/string.hpp> // NOLINT
+#include <fstream>                 // NOLINT
 
 namespace
 {
@@ -39,7 +39,7 @@ void VirtualFS::loadFS()
   }
 }
 
-VirtualFS::VirtualFS()
+VirtualFS::VirtualFS() // NOLINT
 {
   const bool is_file_exists = std::filesystem::exists(kDefaultFsName);
 
@@ -63,7 +63,7 @@ catch (const std::exception &e)
   std::cout << e.what() << '\n';
 }
 
-void VirtualFS::addFile(const std::string &path, const std::string &data)
+void VirtualFS::addFile(const std::string &path, const std::string &data) const // NOLINT
 {
   if (readOnly_)
   {

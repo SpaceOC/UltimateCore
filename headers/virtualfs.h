@@ -3,8 +3,9 @@
 #include <map>
 #include <string>
 
-class VirtualFS {
- public:
+class VirtualFS
+{
+public:
   /**
    * Loads a filesystem from default file ('main.fs') in this directory.
    * Creates this file if it doesn't exist.
@@ -16,7 +17,7 @@ class VirtualFS {
   ~VirtualFS();
 
   template <class Archive>
-  void serialize(Archive& archive);
+  void serialize(Archive &archive);
 
   void writeFS();
   void loadFS();
@@ -26,7 +27,7 @@ class VirtualFS {
    * @param path A path to the file.
    * @param data Data to write.
    */
-  void addFile(const std::string& path, const std::string& data);
+  void addFile(const std::string &path, const std::string &data) const;
 
   /**
    * Locks (allows only read) or unlocks (allows both read and write) the FS.
@@ -34,8 +35,8 @@ class VirtualFS {
    */
   void lock(bool isLock);
 
- private:
-  std::map<std::string, std::string> fs_;
+private:
+  mutable std::map<std::string, std::string> fs_;
   // This should not be serialized.
   bool readOnly_ = false;
 };

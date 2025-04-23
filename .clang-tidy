@@ -5,7 +5,10 @@ Checks: >
   -fuchsia-statically-constructed-objects,
   -fuchsia-default-arguments-calls,
   -boost-use-ranges,
-  -altera-*
+  -altera-*,
+  -llvmlibc-restrict-system-libc-headers,
+  -llvm-*,
+  -misc-include-cleaner
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"
