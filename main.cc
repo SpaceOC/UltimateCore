@@ -1,6 +1,9 @@
-#include "headers/virtualfs.h"
+#include "virtualfs.h"
+#include "core.h"
 
-int main() {
-  auto x = VirtualFS();
-
+// "use a trailing return type for this function"
+int main()
+{ // NOLINT
+  auto vfs = VirtualFS();
+  return 0;
 }

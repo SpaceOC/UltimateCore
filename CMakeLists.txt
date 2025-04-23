@@ -11,6 +11,12 @@ FetchContent_Declare(
         URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
 
+include(FetchContent)
+FetchContent_Declare(
+        dylib
+        URL https://github.com/martin-olivier/dylib/archive/refs/tags/v2.2.1.zip
+)
+
 #FetchContent_Declare(
 #        Boost
 #        URL https://github.com/boostorg/boost/releases/download/boost-1.84.0/boost-1.84.0.7z # downloading a zip release speeds up the download
@@ -27,7 +33,9 @@ FetchContent_Declare(
         cereal
         URL https://github.com/USCiLab/cereal/archive/refs/tags/v1.3.2.zip
 )
+
 FetchContent_MakeAvailable(cereal)
+FetchContent_MakeAvailable(dylib)
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
@@ -45,7 +53,7 @@ add_executable(
 
 )
 target_link_libraries(
-        my_project PUBLIC cereal::cereal
+        my_project PUBLIC cereal::cereal dylib
 )
 
 #include(GoogleTest)
