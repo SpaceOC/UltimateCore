@@ -21,7 +21,10 @@ public:
 
   int sendRequest(std::string what); // NOLINT
 
+  std::string getLanguage();
+
 private:
+  std::string currentLanguage_;
   friend class Module;
   std::vector<std::unique_ptr<Module>> loadedModules_;
 };
