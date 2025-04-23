@@ -48,6 +48,8 @@ add_executable(
 #        hello_test
 #        hello_test.cc
         src/virtualfs.cc
+        src/core.cc
+        src/module.cc
         headers/virtualfs.h
         main.cc
 
